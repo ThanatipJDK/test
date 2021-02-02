@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <nz-layout class="layout" >
+        <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+            <div class="logo"> 
+               
+            </div>
+            <ul nz-menu nzMode="inline" style="height: 100%;">
+                <li nz-menu-item *ngFor="let menuItem of menuItems" (click)="clickToPage(menuItem.path)">
+                    <i nz-icon nzType="{{menuItem.icon}}"></i>
+                    <span>{{menuItem.title}}</span>
+                </li>
+            </ul>
+        </nz-sider>
+        <nz-layout>
+          <nz-header>
+            <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+          </nz-header>
+          <nz-content>
+           
+            <!-- <div class="inner-content"> -->
+                <router-outlet></router-outlet>
+    
+            <!-- </div> -->
+          </nz-content>
+          <nz-footer></nz-footer>
+        </nz-layout>
+    </nz-layout>
+</div>
